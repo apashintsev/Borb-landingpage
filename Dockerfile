@@ -1,4 +1,5 @@
 FROM node:18.14-alpine
+EXPOSE 3000
 LABEL traefik.enable="true"
 LABEL traefik.http.routers.land-app-https.rule="Host(`borb.fi`)"
 LABEL traefik.http.routers.land-app-https.tls="true"
