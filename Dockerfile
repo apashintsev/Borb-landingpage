@@ -1,5 +1,5 @@
 FROM node:18.14-alpine
 WORKDIR /app
 COPY . .
-RUN yarn build
+RUN yarn && yarn build
 CMD ["yarn", "start"]
