@@ -43,7 +43,7 @@ const Footer = () => {
           </Column>
         </Grid>
         <Bottom>
-          <p>© 2022 BorB</p>
+          <p>© {new Date().getFullYear()} BorB</p>
           <a href="/">Cookie Policy</a>
         </Bottom>
       </Container>

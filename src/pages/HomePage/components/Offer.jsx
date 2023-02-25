@@ -72,7 +72,9 @@ const Offer = () => {
 
           {!isJapaneseOrKorean && <Percents />}
         </Text>
-        <Button>{t("head_btn")}</Button>
+        <Button onClick={() => window.location.href="https://app.borb.fi/"}>
+          {t("head_btn")}
+        </Button>
       </Column>
 
       <Lottie options={defaultOptions} width={width} />

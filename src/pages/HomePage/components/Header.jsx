@@ -15,7 +15,9 @@ const Header = ({ set, state }) => {
         <div className="right">
           <img src="/assets/lang.svg" alt="" onClick={() => set(!state)} />
           <div className="line"></div>
-          <button>{t("head_btn")}</button>
+          <button onClick={() => window.location.href="https://app.borb.fi/"}>
+            {t("head_btn")}
+          </button>
         </div>
       </HeaderContainer>
     </StyledHeader>
