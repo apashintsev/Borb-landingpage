@@ -72,7 +72,7 @@ const Offer = () => {
 
           {!isJapaneseOrKorean && <Percents />}
         </Text>
-        <Button onClick={() => window.location.href="https://app.borb.fi/"}>
+        <Button onClick={() => window.location.href="https://dapp.borb.fi/"}>
           {t("head_btn")}
         </Button>
       </Column>
