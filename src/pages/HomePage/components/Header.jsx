@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useTranslation } from "react-i18next";
+import { regexEthAddress } from "../../../lib/data";
+import { getQueryVariable } from "../../../lib/sharedFunctions";
 
 const Header = ({ set, state }) => {
   const { t } = useTranslation();
+  const [ref, setRef] = useState("");
+  useEffect(() => {
+    const refFromUrl = getQueryVariable("ref").toString();
+    let result = refFromUrl.match(regexEthAddress);
+    console.log({ref})
+    if (!!result && result?.length > 0) {
+      setRef("?ref=" + result[0]);
+    }
+  }, []);
 
   return (
     <StyledHeader>
@@ -15,7 +26,11 @@ const Header = ({ set, state }) => {
         <div className="right">
           <img src="/assets/lang.svg" alt="" onClick={() => set(!state)} />
           <div className="line"></div>
-          <button onClick={() => window.location.href="https://dapp.borb.fi/"}>
+          <button
+            onClick={() =>
+              (window.location.href = "https://dapp.borb.fi/" + ref)
+            }
+          >
             {t("head_btn")}
           </button>
         </div>

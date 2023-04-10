@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import animationData from "../../../common/settings.json";
 import { flatMap } from "../../../common/FlatMap";
 import Lottie from "react-lottie";
 
 import { useTranslation } from "react-i18next";
+import { getQueryVariable } from "../../../lib/sharedFunctions";
+import { regexEthAddress } from "../../../lib/data";
 
 const SpecialComponentForJpAndKo = ({ text, isJapaneseOrKorean }) => {
   let result = text;
@@ -54,7 +56,14 @@ const Offer = () => {
   React.useEffect(() => {
     windowHandler();
   }, [window.innerWidth]);
-
+  const [ref, setRef] = useState("");
+  useEffect(() => {
+    const refFromUrl = getQueryVariable("ref").toString();
+    let result = refFromUrl.match(regexEthAddress);
+    if (!!result && result?.length > 0) {
+      setRef("?ref=" + result[0]);
+    }
+  }, []);
   return (
     <StyledOffer>
       <Column>
@@ -72,7 +81,7 @@ const Offer = () => {
 
           {!isJapaneseOrKorean && <Percents />}
         </Text>
-        <Button onClick={() => window.location.href="https://dapp.borb.fi/"}>
+        <Button onClick={() => window.location.href="https://dapp.borb.fi/"+ref}>
           {t("head_btn")}
         </Button>
       </Column>
