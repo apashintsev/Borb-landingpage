@@ -7,44 +7,29 @@ const Footer = () => {
     <StyledFooter>
       <Container>
         <Grid>
-          <Logo>
-            <img src="/assets/logo.svg" alt="" />
-            <p>BorB</p>
-          </Logo>
           <Column>
-            <Title>Company</Title>
-            <Link href="/">Blog</Link>
-            <Link href="/">Contact</Link>
-            <Link href="/">Careers</Link>
-            <Link href="/">Privacy Policy</Link>
-            <Link href="/">News</Link>
+            <Link href="/">Protocols (Trade Supply Earn)</Link>
           </Column>
           <Column>
-            <Title>Social</Title>
-            <Link href="/">Facebook</Link>
-            <Link href="/">Instagram</Link>
-            <Link href="/">LinkedIn</Link>
-            <Link href="/">Twitter</Link>
+            <Link href="/">About (Guides Docs)</Link>
           </Column>
           <Column>
-            <Title>Product</Title>
-            <Link href="/">Help Center</Link>
-            <Link href="/">FAQ for Finance Professionals</Link>
-            <Link href="/">Regulatory</Link>
-            <Link href="/">Trading Hours</Link>
-            <Link href="/">Market Calendar</Link>
+            <Link href="/">Support (Help Contact)</Link>
           </Column>
           <Column>
-            <Title>Data</Title>
-            <Link href="/">API Documentation</Link>
-            <Link href="/">Market Data</Link>
-            <Link href="/">Fed Forecast</Link>
-            <Link href="/">Economic Calendar</Link>
+            <Logo>
+              <img src="/assets/logo.svg" alt="" />
+              <p>BorB</p>
+            </Logo>
           </Column>
         </Grid>
         <Bottom>
           <p>© {new Date().getFullYear()} BorB</p>
-          <a href="/">Cookie Policy</a>
+          <div className="icons">
+            <img src="/assets/twitter.svg" alt="" />
+            <img src="/assets/github.svg" alt="" />
+            <img src="/assets/redit.svg" alt="" />
+          </div>
         </Bottom>
       </Container>
     </StyledFooter>
@@ -53,10 +38,15 @@ const Footer = () => {
 
 export default Footer;
 
-const StyledFooter = styled.footer``;
+const StyledFooter = styled.footer`
+.icons img{
+  padding:5px;
+}
+
+`;
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 107px 92px 86px 197px 128px;
+  grid-template-columns: 200px 200px 200px 197px;
   justify-content: space-between;
   align-items: flex-start;
   margin-bottom: 64px;

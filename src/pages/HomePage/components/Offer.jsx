@@ -13,7 +13,7 @@ const SpecialComponentForJpAndKo = ({ text, isJapaneseOrKorean }) => {
   result = result
     .split(" ")
     .map((part) =>
-      part === "85%" ? (
+      part === "80%" ? (
         <Percents isJapaneseOrKorean={isJapaneseOrKorean} />
       ) : (
         part + " "
@@ -93,7 +93,7 @@ const Offer = () => {
 
 const Percents = ({ isJapaneseOrKorean }) => (
   <Span isJaOrKo={isJapaneseOrKorean}>
-    <img src="/assets/span_circle.svg" alt="" /> 85%
+    <img src="/assets/span_circle.svg" alt="" /> 80%
   </Span>
 );
 

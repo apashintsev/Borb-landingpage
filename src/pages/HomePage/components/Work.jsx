@@ -7,7 +7,7 @@ const Work = () => {
 
   return (
     <StyledWork>
-      <img src="/assets/phone.png" alt="" />
+      <img src="/assets/phone.jpg" alt="" />
       <Column>
         <Title>{t("how_it_works_section")}</Title>
         <Row>

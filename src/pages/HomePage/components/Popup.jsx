@@ -40,11 +40,11 @@ const data = [
     short: "KO",
     url: "https://1inch.io/img/flags/ko.png",
   },
-  {
+ /* {
     name: "Bahasa Indonesia",
     short: "IND",
     url: "https://1inch.io/img/flags/ind.png",
-  },
+  },*/
   {
     name: "Tiếng Việt",
     short: "VN",
@@ -86,10 +86,10 @@ const Popup = ({ set }) => {
         {data.map((card) => (
           <div
             key={card.short}
-            className="card"
-            onClick={handleChangeLanguage(card.short.toLocaleLowerCase())}
+            className={`card  ${card.short!='EN'? 'disabled':''}`}
+            onClick={card.short=='EN'&&handleChangeLanguage(card.short.toLocaleLowerCase())}
           >
-            <img className="card_img" src={card.url} alt="" />
+            <img className="card_img" src={card.url} alt={card.short} />
             <p>
               {card.name} &nbsp;-&nbsp; {card.short}
             </p>
@@ -140,6 +140,20 @@ const StyledPopup = styled.div`
     width: 24px;
     height: 24px;
     margin-right: 16px;
+  }
+  .card.disabled {
+    color: #444444;
+    cursor: default;
+    color: #cccccc;
+  }
+  .card.disabled:hover {
+    color: #cccccc;
+    cursor: default;
+    border: none !important;
+    background: none;
+  }
+  .card.disabled p {
+    color: #cccccc;
   }
   .card {
     padding: 0 16px;

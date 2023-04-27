@@ -4,31 +4,38 @@ import styled from "styled-components";
 const data = [
   {
     id: "1",
-    name: "What are event contracts?",
+    name: "What is BorB?",
+    text: "BorB is a non-custodial prediction market platform built on blockchain (currently operating on BNB Smart Chain. Ethereum and Polygon coming soon). It enables traders to bet on the price of an asset and get rewarded for doing so correctly. Use your market knowledge or gut feeling to predict whether the final price will be Bullish or Bearish.",
   },
   {
     id: "2",
-    name: "How does trading work?",
+    name: "How my profit is calculated?",
+    text: "Your profit from a trade can be up to 80% of the investment amount. The percentage depends on the current yield of the liquidity pool. If liquidity pool earnings fall or become negative, the payout percentage decreases automatically.",
   },
   {
     id: "3",
-    name: "How is the market price determined?",
+    name: "What is the liquidity pool?",
+    text: "Liquidity pools are pools of tokens locked in smart contracts that provide liquidity. Your profit from successful trades is formed from these pools. The profitability of pools should be 2-4%. In this case, successful traders take money from unsuccessful ones, and liquidity providers earn on volumes.",
   },
   {
     id: "4",
-    name: "Who am I trading with?",
+    name: "What is the minimum/maximum amount that I can invest?",
+    text: "The minimum amount to invest in a single trade is $1. The maximum amount in a single trade is $1000.",
   },
   {
     id: "5",
-    name: "How is Kalshi regulated?",
+    name: "Are there any fees?",
+    text: "1% of each trade (trading fees) will go to the treasury.",
   },
   {
     id: "6",
-    name: "How are customer deposits processed?",
+    name: "What are you using for your price feed?",
+    text: "BorB uses real-time on-chain market data from Chainlink oracles.",
   },
   {
     id: "7",
     name: "Is this gambling?",
+    text: "Gambling relies on luck. According to our statistics, it is possible to predict the price movement. Someone does it better than others, but the average win rate is 53.08% per trade. And, unlike traditional bookmakers, BorB doesn’t benefit from a right or wrong outcome. It makes money only through trading fees.",
   },
 ];
 
@@ -61,13 +68,7 @@ const Faq = () => {
             </Row>
             <Content state={show === card.id}>
               <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
+                {card.text}
               </Text>
             </Content>
           </Block>

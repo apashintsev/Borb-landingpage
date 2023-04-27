@@ -54,7 +54,7 @@ const resources = {
     translation: {
       head_title: "強気か弱気か?",
       head_subtitle_first_part: `価格が上がるかどうかを予測する`,
-      head_subtitle_second_part: `上下して 85% を獲得`,
+      head_subtitle_second_part: `上下して 80% を獲得`,
       head_btn: "dAppを起動",
 
       how_it_works_section: "使い方",
