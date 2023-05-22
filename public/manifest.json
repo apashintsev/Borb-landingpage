@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Prediction market dApp",
+  "description":"BorB is an Open Source and Non-Custodial prediction market platform built on blockchain. Use your market knowledge or gut feeling to predict whether the final price will be Bullish or Bearish and earn up to 80%",
+  "name": "Prediction market dApp",
   "icons": [
     {
       "src": "favicon.ico",
