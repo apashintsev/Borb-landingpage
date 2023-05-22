@@ -5,16 +5,23 @@ import Container from "../../../common/Container";
 const Footer = () => {
   return (
     <StyledFooter>
-      <Container>
+      <Container >
         <Grid>
           <Column>
-            <Link href="/">Protocols (Trade Supply Earn)</Link>
+            <Title>Protocols</Title>
+            <Link href="https://dapp.borb.fi/">Trade</Link>
+            <Link href="https://dapp.borb.fi/supply">Supply</Link>
+            <Link href="https://dapp.borb.fi/earn">Earn</Link>
           </Column>
           <Column>
-            <Link href="/">About (Guides Docs)</Link>
+            <Title>About</Title>
+            <Link href="https://dapp.borb.fi/about">Guides</Link>
+            <Link href="https://dapp.borb.fi/docs">Docs</Link>
           </Column>
           <Column>
-            <Link href="/">Support (Help Contact)</Link>
+            <Title>Support</Title>
+            <Link href="https://dapp.borb.fi/settings">Help</Link>
+            <Link href="https://dapp.borb.fi/contact">Contact</Link>
           </Column>
           <Column>
             <Logo>
@@ -39,10 +46,9 @@ const Footer = () => {
 export default Footer;
 
 const StyledFooter = styled.footer`
-.icons img{
-  padding:5px;
-}
-
+  .icons img {
+    padding: 5px;
+  }
 `;
 const Grid = styled.div`
   display: grid;
