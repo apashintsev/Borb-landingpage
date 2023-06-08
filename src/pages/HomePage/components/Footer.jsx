@@ -5,7 +5,7 @@ import Container from "../../../common/Container";
 const Footer = () => {
   return (
     <StyledFooter>
-      <Container >
+      <Container>
         <Grid>
           <Column>
             <Title>Protocols</Title>
@@ -33,9 +33,15 @@ const Footer = () => {
         <Bottom>
           <p>© {new Date().getFullYear()} BorB</p>
           <div className="icons">
-            <img src="/assets/twitter.svg" alt="" />
-            <img src="/assets/github.svg" alt="" />
-            <img src="/assets/redit.svg" alt="" />
+            <a href="https://twitter.com/borb_fi" target="_blank">
+              <img src="/assets/twitter.svg" alt="Twitter" />
+            </a>
+            <a href="https://github.com/borb-fi" target="_blank">
+              <img src="/assets/github.svg" alt="GitHub" />
+            </a>
+            <a href="https://www.reddit.com/r/BorB_fi/" target="_blank">
+              <img src="/assets/redit.svg" alt="Reddit" />
+            </a>
           </div>
         </Bottom>
       </Container>
