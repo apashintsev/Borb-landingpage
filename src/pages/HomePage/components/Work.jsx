@@ -1,26 +1,73 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
+import animationData1 from "../../../common/work-animation-1.json";
+import animationData2 from "../../../common/work-animation-2.json";
+import animationData3 from "../../../common/work-animation-3.json";
+import Lottie from "react-lottie";
 
 const Work = () => {
   const { t } = useTranslation();
 
+  const [width, setWidth] = React.useState("683px");
+
+  const [defaultOptions, setDefaultOptions] = React.useState({
+    loop: true,
+    autoplay: true,
+    animationData: animationData1,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  });
+
+  const windowHandler = () => {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 1500 && windowWidth > 768) {
+      setWidth("50vw");
+    } else if (windowWidth <= 768) {
+      setWidth("100%");
+    } else {
+      setWidth("683px");
+    }
+  };
+
+  React.useEffect(() => {
+    windowHandler();
+  }, [window.innerWidth]);
+
+  const [opened, setOpened] = React.useState(0)
+
   return (
     <StyledWork>
-      <img src="/assets/phone.jpg" alt="" />
+      <LottieWrapper>
+        <Lottie options={defaultOptions} width={width}/>
+      </LottieWrapper>
       <Column>
         <Title>{t("how_it_works_section")}</Title>
-        <Row>
-          <Span>1</Span>
+        <Row onClick={() => {
+            setOpened(1);
+            setDefaultOptions({...defaultOptions, animationData: animationData1})
+          }} className={`${opened===1 ? 'selected' : ''}`}>
           <Text>{t("how_it_works_first_item")}</Text>
+          {opened===1 &&
+            <CollapsedText dangerouslySetInnerHTML={{__html: t("how_it_works_first_item_text")}}></CollapsedText>}
         </Row>
-        <Row>
-          <Span>2</Span>
+        <Row onClick={() => {
+            setOpened(2);
+            setDefaultOptions({...defaultOptions, animationData: animationData2})
+          }} className={`${opened===2 ? 'selected' : ''}`}>
           <Text>{t("how_it_works_second_item")}</Text>
+          {opened===2 &&
+            <CollapsedText dangerouslySetInnerHTML={{__html: t("how_it_works_second_item_text")}}></CollapsedText>}
         </Row>
-        <Row>
-          <Span>3</Span>
+        <Row onClick={() => {
+            setOpened(3);
+            setDefaultOptions({...defaultOptions, animationData: animationData3})
+          }} className={`${opened===3 ? 'selected' : ''}`}>
           <Text>{t("how_it_works_third_item")}</Text>
+          {opened===3 &&
+            <CollapsedText dangerouslySetInnerHTML={{__html: t("how_it_works_third_item_text")}}></CollapsedText>}
         </Row>
       </Column>
     </StyledWork>
@@ -30,45 +77,55 @@ const Work = () => {
 export default Work;
 
 const StyledWork = styled.div`
+  position: relative;
   margin: 157px 0;
   display: flex;
   align-items: center;
-  img {
-    width: 50%;
-    margin-right: 100px;
-  }
-  @media screen and (max-width: 1500px) {
-    margin: 150px 0 100px;
-    justify-content: space-around;
-    img {
-      max-width: 546px;
-      width: 40%;
-      margin-right: 5vw;
-    }
-  }
   @media screen and (max-width: 768px) {
     flex-direction: column-reverse;
     margin: 50px 0;
-    img {
-      margin-right: 0;
-      width: 80%;
-      margin-top: 50px;
-    }
   }
 `;
 
-const Column = styled.div`
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 64px 64px 64px;
-  grid-gap: 32px;
-  @media screen and (max-width: 1000px) {
-    grid-gap: 20px;
+const LottieWrapper = styled.div`
+  width: 40%;
+  height: 100%;
+  margin-right: 60%;
+  position: absolute;
+  max-height: 600px;
+  z-index: -1;
+  svg {
+    width: 200%!important;
+    left: 0%;
+    position: absolute;
+    z-index: -1;
   }
   @media screen and (max-width: 768px) {
+    position: relative;
+    margin: 50px 0 0;
+    width: 100%;
+    max-width: 430px;
+    svg {
+      width: 180%!important;
+      position: relative;
+    }
+  }
+
+`
+const Column = styled.div`
+  margin-left: 50%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 100px 110px 110px 110px;
+  grid-gap: 10px;
+  @media screen and (max-width: 1000px) {
+    grid-template-rows: 100px 100px 100px 100px;
     grid-gap: 10px;
-    justify-content: center;
-    text-align: center;
+  }
+  @media screen and (max-width: 768px) {
+    width: 100%;
+    margin-left: 0;
+    grid-gap: 10px;
   }
 `;
 const Title = styled.h3`
@@ -79,40 +136,40 @@ const Title = styled.h3`
     margin-bottom: 40px;
   }
   @media screen and (max-width: 768px) {
+    margin-left: 0;
     font-size: 30px;
     margin-bottom: 0;
   }
 `;
 const Text = styled.p`
-  margin-left: 24px;
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 600;
+  color: #888888;
+  .selected & {color: #000000}
   @media screen and (max-width: 1000px) {
-    font-size: 22px;
-    margin-left: 16px;
+    font-size: 18px;
   }
   @media screen and (max-width: 768px) {
     font-size: 17px;
   }
 `;
-const Span = styled.div`
-  background: #ffffff;
-  box-shadow: 0px 6px 16px rgba(197, 200, 207, 0.3);
-  border-radius: 100px;
-  display: grid;
-  place-content: center;
+const CollapsedText = styled.p`
+  margin-top: 12px;
+  font-size: 16px;
   font-weight: 400;
-  font-size: 24px;
-  color: #00e9be;
-  width: 55px;
-  height: 55px;
   @media screen and (max-width: 1000px) {
-    width: 48px;
-    height: 48px;
-    font-size: 20px;
+    font-size: 16px;
+  }
+  @media screen and (max-width: 768px) {
+    font-size: 14px;
   }
 `;
 const Row = styled.div`
-  display: flex;
-  align-items: center;
+  display: block;
+  cursor: pointer;
+  border-right: 4px solid #aaa;
+  padding-right: 20px;
+  &.selected {
+    border-color: #00e9be;
+  }
 `;

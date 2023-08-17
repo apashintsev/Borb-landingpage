@@ -19,6 +19,10 @@ button {
     cursor: pointer;
 }
 
+#root {
+    overflow-x: hidden;
+}
+
 .container {
     margin: 0 auto;
     padding: 0 230px;

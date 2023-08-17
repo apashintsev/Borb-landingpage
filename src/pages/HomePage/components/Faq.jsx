@@ -5,27 +5,27 @@ const data = [
   {
     id: "1",
     name: "What is BorB?",
-    text: "BorB is a non-custodial prediction market platform built on blockchain (currently operating on BNB Smart Chain. Ethereum and Polygon coming soon). It enables traders to bet on the price of an asset and get rewarded for doing so correctly. Use your market knowledge or gut feeling to predict whether the final price will be Bullish or Bearish.",
+    text: "BorB is an open source and non-custodial crypto derivatives platform dedicated to trading on a new asset class: <i>fixed length crypto contracts</i>. This is a \"bullish or bearish\" type of contract. They are powered by smart contracts that can automatically facilitate and execute the terms of the contracts. These contracts pose a simple question – will the market be <b>B</b>ullish or <b>B</b>earish over a specific timeframe?",
   },
   {
     id: "2",
     name: "How my profit is calculated?",
-    text: "Your profit from a trade can be up to 80% of the investment amount. The percentage depends on the current yield of the liquidity pool. If liquidity pool earnings fall or become negative, the payout percentage decreases automatically.",
+    text: "Your profit from a trade can be up to 95% of the investment amount. The percentage depends on the current yield of the liquidity pool. If liquidity pool earnings fall or become negative, the payout percentage decreases automatically.",
   },
   {
     id: "3",
     name: "What is the liquidity pool?",
-    text: "Liquidity pools are pools of tokens locked in smart contracts that provide liquidity. Your profit from successful trades is formed from these pools. The profitability of pools should be 2-4%. In this case, successful traders take money from unsuccessful ones, and liquidity providers earn on volumes.",
+    text: "Liquidity pools are pools of tokens locked in smart contracts that provide liquidity. Your profit from successful trades is formed from these pools. The profitability of pools should be 2-4%. In this case successful traders take money from unsuccessful ones, and liquidity providers earn on volumes.",
   },
   {
     id: "4",
     name: "What is the minimum/maximum amount that I can invest?",
-    text: "The minimum amount to invest in a single trade is $1. The maximum amount in a single trade is $1000.",
+    text: "The minimum amount to invest in a single trade is $1. The maximum amount in a single trade is $100,000.",
   },
   {
     id: "5",
     name: "Are there any fees?",
-    text: "1% of each trade (trading fees) will go to the treasury.",
+    text: "No, BorB is commission-free contract trading platform. You just need to pay extra gas fee for auto claiming transaction.",
   },
   {
     id: "6",
@@ -35,7 +35,7 @@ const data = [
   {
     id: "7",
     name: "Is this gambling?",
-    text: "Gambling relies on luck. According to our statistics, it is possible to predict the price movement. Someone does it better than others, but the average win rate is 53.08% per trade. And, unlike traditional bookmakers, BorB doesn’t benefit from a right or wrong outcome. It makes money only through trading fees.",
+    text: "BorB uses real-time on-chain market data from Chainlink oracles.",
   },
 ];
 
@@ -67,8 +67,7 @@ const Faq = () => {
               </Burger>
             </Row>
             <Content state={show === card.id}>
-              <Text>
-                {card.text}
+              <Text dangerouslySetInnerHTML={{__html: card.text}}>
               </Text>
             </Content>
           </Block>

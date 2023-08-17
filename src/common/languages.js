@@ -5,14 +5,18 @@ const resources = {
   en: {
     translation: {
       head_title: "Bullish or Bearish?",
-      head_subtitle_first_part: `Predict if the price will`,
-      head_subtitle_second_part: `go up or down & earn`,
+      head_subtitle_first_part: `Trade crypto contracts`,
+      head_subtitle_second_part: `with no commission fees.`,
       head_btn: "Launch dApp",
 
-      how_it_works_section: "How it works",
-      how_it_works_first_item: "Choose a timeframe",
-      how_it_works_second_item: "Enter amount",
-      how_it_works_third_item: "Go up or down",
+      how_it_works_section: "Easy, fun contract trading",
+      how_it_works_section2: "with BorB products:",
+      how_it_works_first_item: "Contract for difference",
+      how_it_works_first_item_text: "Trade with up to 100x leverage.<br/>Whether you’re Bullish or Bearish,<br/>you’re always covered from liquidations",
+      how_it_works_second_item: "Fixed payout contract",
+      how_it_works_second_item_text: "Predict if the price will go<br/>up or down and earn up to 80%<br/>in just a matter of a few minutes",
+      how_it_works_third_item: "Contract for five",
+      how_it_works_third_item_text: "Predict whether the final price<br/>of each of the five timeframes will be<br/>Bullish or Bearish and get up to 1000%",
 
       trade_on_the_future_title: "Trade on the future",
       trade_on_the_future_subtitle: "start trading",

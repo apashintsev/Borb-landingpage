@@ -8,6 +8,12 @@ const Footer = () => {
       <Container>
         <Grid>
           <Column>
+            <Title>Contracts</Title>
+            <Link href="https://dapp.borb.fi/">FPC</Link>
+            <Link href="https://dapp.borb.fi/CFD">CFD</Link>
+            <Link href="https://dapp.borb.fi/CFF">CFF</Link>
+          </Column>
+          <Column>
             <Title>Protocols</Title>
             <Link href="https://dapp.borb.fi/">Trade</Link>
             <Link href="https://dapp.borb.fi/supply">Supply</Link>
@@ -18,11 +24,11 @@ const Footer = () => {
             <Link href="https://dapp.borb.fi/about">Guides</Link>
             <Link href="https://dapp.borb.fi/docs">Docs</Link>
           </Column>
-          <Column>
+          {/* <Column>
             <Title>Support</Title>
             <Link href="https://dapp.borb.fi/settings">Help</Link>
             <Link href="https://dapp.borb.fi/contact">Contact</Link>
-          </Column>
+          </Column> */}
           <Column>
             <Logo>
               <img src="/assets/logo.svg" alt="" />

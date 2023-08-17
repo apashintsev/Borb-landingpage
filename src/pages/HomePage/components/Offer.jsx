@@ -78,8 +78,6 @@ const Offer = () => {
             />
           )}
           {!isJapaneseOrKorean && t("head_subtitle_second_part")}
-
-          {!isJapaneseOrKorean && <Percents />}
         </Text>
         <Button onClick={() => window.location.href="https://dapp.borb.fi/"+ref}>
           {t("head_btn")}

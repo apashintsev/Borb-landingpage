@@ -16,7 +16,7 @@ const Banner = () => {
   }, []);
   return (
     <StyledBanner>
-      <Title>Trade on the future</Title>
+      <Title>Web3 derivatives made simple</Title>
       <Button
         onClick={() => (window.location.href = "https://dapp.borb.fi/" + ref)}
       >
