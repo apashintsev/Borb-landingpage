@@ -1,9 +1,9 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
-import animationData1 from "../../../common/work-animation-1.json";
+import animationData1 from "../../../common/work-animation-3.json";
 import animationData2 from "../../../common/work-animation-2.json";
-import animationData3 from "../../../common/work-animation-3.json";
+import animationData3 from "../../../common/work-animation-1.json";
 import Lottie from "react-lottie";
 
 const Work = () => {
@@ -13,12 +13,29 @@ const Work = () => {
 
   const [defaultOptions, setDefaultOptions] = React.useState({
     loop: true,
-    autoplay: true,
     animationData: animationData1,
     rendererSettings: {
       preserveAspectRatio: "xMidYMid slice",
     },
   });
+
+  const ref = React.useRef(null)
+
+  const [paused, setPaused] = React.useState(true)
+
+  React.useEffect(() => {
+    function scroll() {
+        console.log(ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight, window.scrollY - window.innerHeight)
+        if (window.scrollY + window.innerHeight >= ref.current.offsetTop && window.scrollY <= ref.current.offsetTop + ref.current.offsetHeight) {
+            setPaused(false)
+        } else {
+            setPaused(true)
+        }
+    }
+    scroll()
+    window.addEventListener('scroll', scroll)
+    return () => window.removeEventListener('scroll', scroll)
+  }, [])
 
   const windowHandler = () => {
     const windowWidth = window.innerWidth;
@@ -39,9 +56,9 @@ const Work = () => {
   const [opened, setOpened] = React.useState(0)
 
   return (
-    <StyledWork>
+    <StyledWork ref={ref}>
       <LottieWrapper>
-        <Lottie options={defaultOptions} width={width}/>
+        <Lottie options={defaultOptions} width={width} isStopped={paused} paused={paused}/>
       </LottieWrapper>
       <Column>
         <Title>{t("how_it_works_section")}</Title>
@@ -77,7 +94,6 @@ const Work = () => {
 export default Work;
 
 const StyledWork = styled.div`
-  position: relative;
   margin: 157px 0;
   display: flex;
   align-items: center;
@@ -90,9 +106,8 @@ const StyledWork = styled.div`
 const LottieWrapper = styled.div`
   width: 40%;
   height: 100%;
-  margin-right: 60%;
+  left: 0;
   position: absolute;
-  max-height: 600px;
   z-index: -1;
   svg {
     width: 200%!important;
@@ -114,6 +129,7 @@ const LottieWrapper = styled.div`
 `
 const Column = styled.div`
   margin-left: 50%;
+  width: 50%;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 100px 110px 110px 110px;
@@ -167,7 +183,7 @@ const CollapsedText = styled.p`
 const Row = styled.div`
   display: block;
   cursor: pointer;
-  border-right: 4px solid #aaa;
+  border-right: 4px solid #dadada;
   padding-right: 20px;
   &.selected {
     border-color: #00e9be;

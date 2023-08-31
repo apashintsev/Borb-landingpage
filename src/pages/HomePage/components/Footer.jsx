@@ -15,14 +15,12 @@ const Footer = () => {
           </Column>
           <Column>
             <Title>Protocols</Title>
-            <Link href="https://dapp.borb.fi/">Trade</Link>
             <Link href="https://dapp.borb.fi/supply">Supply</Link>
             <Link href="https://dapp.borb.fi/earn">Earn</Link>
           </Column>
           <Column>
             <Title>About</Title>
-            <Link href="https://dapp.borb.fi/about">Guides</Link>
-            <Link href="https://dapp.borb.fi/docs">Docs</Link>
+            <Link href="https://docs.borb.fi/">Docs</Link>
           </Column>
           {/* <Column>
             <Title>Support</Title>

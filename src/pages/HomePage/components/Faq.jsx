@@ -32,11 +32,6 @@ const data = [
     name: "What are you using for your price feed?",
     text: "BorB uses real-time on-chain market data from Chainlink oracles.",
   },
-  {
-    id: "7",
-    name: "Is this gambling?",
-    text: "BorB uses real-time on-chain market data from Chainlink oracles.",
-  },
 ];
 
 const Faq = () => {
