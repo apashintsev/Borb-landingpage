@@ -19,23 +19,30 @@ const Work = () => {
     },
   });
 
-  const ref = React.useRef(null)
+  const ref = React.useRef(null);
 
-  const [paused, setPaused] = React.useState(true)
+  const [paused, setPaused] = React.useState(true);
 
   React.useEffect(() => {
     function scroll() {
-        console.log(ref.current.offsetTop, ref.current.offsetTop + ref.current.offsetHeight, window.scrollY - window.innerHeight)
-        if (window.scrollY + window.innerHeight >= ref.current.offsetTop && window.scrollY <= ref.current.offsetTop + ref.current.offsetHeight) {
-            setPaused(false)
-        } else {
-            setPaused(true)
-        }
+      console.log(
+        ref.current.offsetTop,
+        ref.current.offsetTop + ref.current.offsetHeight,
+        window.scrollY - window.innerHeight
+      );
+      if (
+        window.scrollY + window.innerHeight >= ref.current.offsetTop &&
+        window.scrollY <= ref.current.offsetTop + ref.current.offsetHeight
+      ) {
+        setPaused(false);
+      } else {
+        setPaused(true);
+      }
     }
-    scroll()
-    window.addEventListener('scroll', scroll)
-    return () => window.removeEventListener('scroll', scroll)
-  }, [])
+    scroll();
+    window.addEventListener("scroll", scroll);
+    return () => window.removeEventListener("scroll", scroll);
+  }, []);
 
   const windowHandler = () => {
     const windowWidth = window.innerWidth;
@@ -53,11 +60,33 @@ const Work = () => {
     windowHandler();
   }, [window.innerWidth]);
 
-  const [opened, setOpened] = React.useState(0)
+  const [opened, setOpened] = React.useState(0);
 
   return (
     <StyledWork ref={ref}>
-      <LottieWrapper>
+      <div
+        style={{
+          marginBottom: "0.5rem",
+          marginTop: "3rem",
+          borderRadius: "1.5rem",
+          padding: "0.75rem",
+          backgroundColor: "rgb(247 248 253)",
+          width: "100%",
+          minHeight: "600px",
+        }}
+      >
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/SQnRs-J66VA?si=Tv3mZcjHwLAV7gqZ"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          style={{ borderRadius: "16px", minHeight: "600px" }}
+        ></iframe>
+      </div>
+      {/*<LottieWrapper>
         <Lottie options={defaultOptions} width={width} isStopped={paused} paused={paused}/>
       </LottieWrapper>
       <Column>
@@ -86,7 +115,7 @@ const Work = () => {
           {opened===3 &&
             <CollapsedText dangerouslySetInnerHTML={{__html: t("how_it_works_third_item_text")}}></CollapsedText>}
         </Row>
-      </Column>
+          </Column>*/}
     </StyledWork>
   );
 };
@@ -110,7 +139,7 @@ const LottieWrapper = styled.div`
   position: absolute;
   z-index: -1;
   svg {
-    width: 200%!important;
+    width: 200% !important;
     left: 0%;
     position: absolute;
     z-index: -1;
@@ -121,12 +150,11 @@ const LottieWrapper = styled.div`
     width: 100%;
     max-width: 430px;
     svg {
-      width: 180%!important;
+      width: 180% !important;
       position: relative;
     }
   }
-
-`
+`;
 const Column = styled.div`
   margin-left: 50%;
   width: 50%;
@@ -161,7 +189,9 @@ const Text = styled.p`
   font-size: 24px;
   font-weight: 600;
   color: #888888;
-  .selected & {color: #000000}
+  .selected & {
+    color: #000000;
+  }
   @media screen and (max-width: 1000px) {
     font-size: 18px;
   }
